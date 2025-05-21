@@ -1,0 +1,61 @@
+.byte-auto-complete {
+  position: relative;
+
+  // Ensure the input wrapper matches the auto-complete width
+  .byte-input-wrapper {
+    width: 100%;
+  }
+
+  // Handle different input sizes
+  &.input-size-sm {
+    width: $input-width-sm;
+  }
+
+  &.input-size-md {
+    width: $input-width-md;
+  }
+
+  &.input-size-lg {
+    width: $input-width-lg;
+  }
+}
+
+.byte-suggestion-list {
+  list-style: none;
+  padding-left: 0;
+  white-space: nowrap;
+  position: relative;
+  background: $white;
+  border: $menu-border-width solid $menu-border-color;
+  top: 8px;
+  width: 100%; // This is 100% of the parent (.byte-auto-complete), not the viewport
+  max-width: 100%; // Ensure it doesn't exceed parent width
+
+  .suggestions-loading-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75px;
+  }
+
+  .suggestion-item {
+    box-sizing: border-box;
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $menu-transition;
+    color: $body-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-bottom: $menu-border-width solid $menu-border-color;
+
+    &.is-active {
+      background: $menu-item-active-color !important;
+      color: $white !important;
+    }
+
+    &:hover {
+      color: $menu-item-active-color !important;
+    }
+  }
+}
